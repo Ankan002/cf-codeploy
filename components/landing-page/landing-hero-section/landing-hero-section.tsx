@@ -1,3 +1,5 @@
+import { SolidBtn } from "@/components/elements";
+
 const LandingHeroSection = () => {
 	return (
 		<div className="w-full py-14 px-3 flex flex-col items-center justify-center font-geist-sans">
@@ -13,6 +15,11 @@ const LandingHeroSection = () => {
 				platform. Connect with others, share ideas, and build amazing
 				projects together.
 			</p>
+
+			<SolidBtn
+				title="Get Started"
+				className="w-fit px-5 py-2 rounded-md mt-6"
+			/>
 		</div>
 	);
 };
