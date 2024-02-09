@@ -8,6 +8,7 @@ import {
 	RecoilProvider,
 } from "@/components/providers";
 import { Toaster } from "@/components/ui/toaster";
+import { AuthManager } from "@/components/common";
 
 export const metadata: Metadata = {
 	title: "Codeploy",
@@ -25,6 +26,7 @@ export default function RootLayout({
 				<ReactQueryProvider>
 					<RecoilProvider>
 						<GoogleAuthProvider>
+							<AuthManager />
 							{children}
 							<Toaster />
 						</GoogleAuthProvider>
