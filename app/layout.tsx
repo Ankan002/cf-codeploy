@@ -9,7 +9,7 @@ import {
 } from "@/components/providers";
 
 export const metadata: Metadata = {
-	title: "Codage",
+	title: "Codeploy",
 	description: "An app perfect for your coding interview needs!!",
 };
 
