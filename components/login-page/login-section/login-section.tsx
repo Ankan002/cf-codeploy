@@ -4,8 +4,11 @@ import Image from "next/image";
 import Logo from "@/assets/images/logo.png";
 import { SolidBtn } from "@/components/elements";
 import { FaGoogle } from "react-icons/fa";
+import { useLoginSection } from "./hook";
 
 const LoginSection = () => {
+	const { onLoginClick } = useLoginSection();
+
 	return (
 		<div className="flex-1 h-screen flex flex-col items-center justify-center px-3 py-2">
 			<Image
@@ -25,6 +28,7 @@ const LoginSection = () => {
 				className="w-fit mt-6 font-geist-sans tracking-wide text-lg rounded-md hover:bg-white/90"
 				LeftIcon={FaGoogle}
 				leftIconClassName="mr-2.5"
+				onClick={onLoginClick}
 			/>
 		</div>
 	);

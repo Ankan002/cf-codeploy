@@ -7,6 +7,7 @@ import {
 	ReactQueryProvider,
 	RecoilProvider,
 } from "@/components/providers";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
 	title: "Codeploy",
@@ -23,7 +24,10 @@ export default function RootLayout({
 			<body className={`${GeistSans.variable} ${GeistMono.variable}`}>
 				<ReactQueryProvider>
 					<RecoilProvider>
-						<GoogleAuthProvider>{children}</GoogleAuthProvider>
+						<GoogleAuthProvider>
+							{children}
+							<Toaster />
+						</GoogleAuthProvider>
 					</RecoilProvider>
 				</ReactQueryProvider>
 			</body>
