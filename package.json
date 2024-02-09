@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-toast": "^1.1.5",
     "@react-oauth/google": "^0.12.1",
     "@tanstack/react-query": "^5.18.1",
     "class-variance-authority": "^0.7.0",
