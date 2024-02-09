@@ -39,9 +39,12 @@ const config = {
 				"dark-grey": "#444444",
 				"light-grey": "#999999",
 				"primary-blue": "#0070F3",
+				"blue-hue": "#01dfd8",
 				"primary-red": "#FF0000",
 				"primary-yellow": "#F5A623",
 				"primary-violet": "#7928CA",
+				"dark-pink": "#ff0080",
+				"rose-pink": "#e2008e",
 			},
 			fontFamily: {
 				"geist-sans": ["var(--font-geist-sans)"],
