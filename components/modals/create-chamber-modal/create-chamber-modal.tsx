@@ -1,6 +1,8 @@
 "uce client";
 
 import ReactModal from "react-modal";
+import { useCreateChamberModal } from "./hook";
+import { TextInput } from "@/components/elements";
 
 interface Props {
 	title: string;
@@ -10,6 +12,8 @@ interface Props {
 
 const CreateChamberModal = (props: Props) => {
 	const { title, isModalOpen, onModalCloseRequest } = props;
+
+	const { name, onNameChange } = useCreateChamberModal();
 
 	return (
 		<ReactModal
@@ -32,6 +36,8 @@ const CreateChamberModal = (props: Props) => {
 		>
 			<div className="w-full flex flex-col border border-white rounded-md px-4 py-3 bg-black font-geist-sans">
 				<h1 className="text-xl text-white">Create Chamber</h1>
+
+				<TextInput title="Name" value={name} onChange={onNameChange} className="mt-4" />
 			</div>
 		</ReactModal>
 	);
