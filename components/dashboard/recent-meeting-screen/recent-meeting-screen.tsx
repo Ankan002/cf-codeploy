@@ -47,7 +47,10 @@ const RecentMeetingScreen = () => {
 									<p className="text-lg font-base mt-2 text-light-grey">
 										{recentChamber.status === "active"
 											? "Ongoing"
-											: `Ended at ${recentChamber.endedAt.getUTCDate()}`}
+											: `Ended at ${
+													recentChamber?.endedAt?.getUTCDate() ??
+													""
+											  }`}
 									</p>
 								</div>
 

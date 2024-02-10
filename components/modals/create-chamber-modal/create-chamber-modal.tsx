@@ -22,6 +22,7 @@ const CreateChamberModal = (props: Props) => {
 		onInviteClick,
 		emailsInvited,
 		removeFromInvitedList,
+		onCreateClick,
 	} = useCreateChamberModal();
 
 	return (
@@ -103,7 +104,7 @@ const CreateChamberModal = (props: Props) => {
 						title="Create"
 						className="border border-white bg-white text-black rounded-md w-fit py-1 ml-3"
 						titleClassName="text-black"
-						onClick={onModalCloseRequest}
+						onClick={onCreateClick}
 					/>
 				</div>
 			</div>
