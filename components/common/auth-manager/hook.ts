@@ -1,5 +1,5 @@
 import { appLoadAtom, authAtom, chambersAtom } from "@/atoms";
-import { chambersLoadingAtom } from "@/atoms/chambers-laoding-atom";
+import { chambersLoadingAtom } from "@/atoms/chambers-loading-atom";
 import { useAPIErrorHandler } from "@/hooks";
 import { useCheckPrevAuth } from "@/services/api/auth";
 import { useGetChambers } from "@/services/api/chambers";

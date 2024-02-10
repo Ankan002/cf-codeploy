@@ -1,5 +1,5 @@
 export interface Chamber {
-	id: string;
+	_id: string;
 	name: string;
 	whitelisted_emails: Array<string>;
 	status: "active" | "inactive";
