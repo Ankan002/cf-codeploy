@@ -1,5 +1,5 @@
 import { MainNavbar } from "@/components/common";
-import { DashboardHeader } from "@/components/dashboard";
+import { DashboardHeader, RecentMeetingScreen } from "@/components/dashboard";
 
 const DashboardPage = () => {
 	return (
@@ -7,6 +7,7 @@ const DashboardPage = () => {
 			<MainNavbar />
 			<main className="flex min-h-screen flex-col bg-black pt-14">
 				<DashboardHeader />
+				<RecentMeetingScreen />
 			</main>
 		</>
 	);
