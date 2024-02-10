@@ -4,7 +4,9 @@ const DashboardPage = () => {
 	return (
 		<>
 			<MainNavbar />
-			<main className="flex min-h-screen flex-col bg-black pt-14"></main>
+			<main className="flex min-h-screen flex-col bg-black pt-14">
+                
+            </main>
 		</>
 	);
 };
