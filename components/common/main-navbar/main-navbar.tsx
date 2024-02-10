@@ -24,7 +24,7 @@ const MainNavbar = () => {
 
 			<div className="w-full flex items-center justify-end">
 				{isAuthenticated ? (
-					<Link href="/profile">
+					<Link href="/dashboard">
 						<button className="p-2 bg-white hover:bg-white/90s rounded-full">
 							<User size={20} />
 						</button>
