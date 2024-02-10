@@ -1,6 +1,9 @@
-import { appLoadAtom, authAtom } from "@/atoms";
+import { appLoadAtom, authAtom, chambersAtom } from "@/atoms";
+import { chambersLoadingAtom } from "@/atoms/chambers-laoding-atom";
 import { useAPIErrorHandler } from "@/hooks";
 import { useCheckPrevAuth } from "@/services/api/auth";
+import { useGetChambers } from "@/services/api/chambers";
+import { Chamber } from "@/types/models";
 import { useEffect, useRef } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
@@ -10,7 +13,11 @@ export const useAuthManager = () => {
 	const { checkPrevAuth, checkPrevAuthError, data } = useCheckPrevAuth();
 	const [isAuthenticated, setIsAuthenticated] =
 		useRecoilState<boolean>(authAtom);
-	const { APIErrorHandler } = useAPIErrorHandler();
+	const { chambers, fetchingChamberError, getChambers, gettingChambers } =
+		useGetChambers();
+	const setFetchingChambers = useSetRecoilState<boolean>(chambersLoadingAtom);
+	const setChambers = useSetRecoilState<Array<Chamber>>(chambersAtom);
+	const { APIErrorHandler, protectedAPIErrorHandler } = useAPIErrorHandler();
 
 	useEffect(() => {
 		if (isAppMounted.current) return;
@@ -20,8 +27,19 @@ export const useAuthManager = () => {
 	}, []);
 
 	useEffect(() => {
+		setFetchingChambers(gettingChambers);
+	}, [gettingChambers]);
+
+	useEffect(() => {
+		if (chambers) {
+			console.log(chambers);
+			setChambers(chambers);
+		}
+	}, [chambers]);
+
+	useEffect(() => {
 		if (data) {
-            console.log(data);
+			console.log(data);
 			setIsAuthenticated(data.success);
 			setIsAppLoaded(true);
 		}
@@ -31,12 +49,19 @@ export const useAuthManager = () => {
 		if (checkPrevAuthError) {
 			APIErrorHandler()(checkPrevAuthError);
 		}
-	}, [checkPrevAuthError]);
+
+		if (fetchingChamberError) {
+			protectedAPIErrorHandler()(fetchingChamberError);
+		}
+	}, [checkPrevAuthError, fetchingChamberError]);
 
 	useEffect(() => {
 		if (isAuthenticated) {
+			getChambers();
 		}
 	}, [isAuthenticated]);
+
+	useEffect(() => {}, []);
 
 	return {};
 };
