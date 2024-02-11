@@ -41,22 +41,9 @@ codeploy-frontend/
 
 Feel free to explore the folders and files to understand the project structure better.
 
-
-
-
-
-### Technologies Used
-
-- **Language:** TypeScript
-- **Framework:** Next.js
-- **Real-time Communication:** Implemented using web sockets and the Socket.IO library
-- **Real-time Synced Code:** Achieved through 'CodeMirror'
-- **User Interface:** Developed using ShadCN UI library and Tailwind CSS
-
-
 ---
 
-### Introduction to Technologies
+###  Technologies Used
 
 #### [TypeScript](https://www.typescriptlang.org/)
 
