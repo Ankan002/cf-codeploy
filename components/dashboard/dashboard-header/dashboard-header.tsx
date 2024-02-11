@@ -4,6 +4,7 @@ import { SolidBtn } from "@/components/elements";
 import { LogOut, Plus } from "lucide-react";
 import { useDashboardHeader } from "./hook";
 import { CreateChamberModal } from "@/components/modals/create-chamber-modal";
+import { InviteModal } from "@/components/modals/invite-modal";
 
 const DashboardHeader = () => {
 	const {
@@ -12,7 +13,8 @@ const DashboardHeader = () => {
 		toggleCreateChamber,
 		updateInviteLink,
 		isInviteLinkModalOpen,
-		toggleInviteLinkModal
+		toggleInviteLinkModal,
+		inviteLink,
 	} = useDashboardHeader();
 
 	return (
@@ -39,6 +41,13 @@ const DashboardHeader = () => {
 				onModalCloseRequest={toggleCreateChamber}
 				updateInviteLink={updateInviteLink}
 				toggleInviteLinkModal={toggleInviteLinkModal}
+			/>
+
+			<InviteModal
+				title="Your Invite"
+				isModalOpen={isInviteLinkModalOpen}
+				onModalCloseRequest={toggleInviteLinkModal}
+				inviteLink={inviteLink}
 			/>
 		</div>
 	);

@@ -43,5 +43,6 @@ export const useDashboardHeader = () => {
 		updateInviteLink,
 		isInviteLinkModalOpen,
 		toggleInviteLinkModal: toggleBooleanState(setIsInviteLinkModalOpen),
+		inviteLink
 	};
 };
