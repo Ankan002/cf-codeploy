@@ -7,7 +7,16 @@ import { textInputController } from "@/utils/text-input-controller";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 
-export const useCreateChamberModal = () => {
+interface Args {
+	onModalCloseRequest: () => void;
+	updateInviteLink: (str: string) => void;
+	toggleInviteLinkModal: () => void;
+}
+
+export const useCreateChamberModal = (args: Args) => {
+	const { onModalCloseRequest, updateInviteLink, toggleInviteLinkModal } =
+		args;
+
 	const [name, setName] = useState<string>("");
 	const [currentEmail, setCurrentEmail] = useState<string>("");
 	const [emailsInvited, setEmailsInvited] = useState<Array<string>>([]);
@@ -36,9 +45,12 @@ export const useCreateChamberModal = () => {
 				whitelistedEmails: emailsInvited,
 			});
 
-			console.log(data);
-
 			setChambers((prev) => [data, ...prev]);
+			updateInviteLink(
+				`${process.env["NEXT_PUBLIC_NEXT_URL"]}/chamber/${data._id}`
+			);
+			onModalCloseRequest();
+			toggleInviteLinkModal();
 		} catch (error) {
 			protectedAPIErrorHandler()(error);
 		}

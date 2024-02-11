@@ -9,10 +9,18 @@ interface Props {
 	title: string;
 	isModalOpen: boolean;
 	onModalCloseRequest: () => void;
+	updateInviteLink: (str: string) => void;
+	toggleInviteLinkModal: () => void;
 }
 
 const CreateChamberModal = (props: Props) => {
-	const { title, isModalOpen, onModalCloseRequest } = props;
+	const {
+		title,
+		isModalOpen,
+		onModalCloseRequest,
+		updateInviteLink,
+		toggleInviteLinkModal,
+	} = props;
 
 	const {
 		name,
@@ -23,7 +31,11 @@ const CreateChamberModal = (props: Props) => {
 		emailsInvited,
 		removeFromInvitedList,
 		onCreateClick,
-	} = useCreateChamberModal();
+	} = useCreateChamberModal({
+		onModalCloseRequest,
+		updateInviteLink,
+		toggleInviteLinkModal,
+	});
 
 	return (
 		<ReactModal

@@ -6,8 +6,14 @@ import { useDashboardHeader } from "./hook";
 import { CreateChamberModal } from "@/components/modals/create-chamber-modal";
 
 const DashboardHeader = () => {
-	const { onLogoutClick, isCreateChamberModalOpen, toggleCreateChamber } =
-		useDashboardHeader();
+	const {
+		onLogoutClick,
+		isCreateChamberModalOpen,
+		toggleCreateChamber,
+		updateInviteLink,
+		isInviteLinkModalOpen,
+		toggleInviteLinkModal
+	} = useDashboardHeader();
 
 	return (
 		<div className="w-full flex items-center justify-between mt-5 px-4">
@@ -31,6 +37,8 @@ const DashboardHeader = () => {
 				title="Create a Chamber"
 				isModalOpen={isCreateChamberModalOpen}
 				onModalCloseRequest={toggleCreateChamber}
+				updateInviteLink={updateInviteLink}
+				toggleInviteLinkModal={toggleInviteLinkModal}
 			/>
 		</div>
 	);

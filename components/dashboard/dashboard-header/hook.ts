@@ -12,7 +12,10 @@ export const useDashboardHeader = () => {
 	const { APIErrorHandler } = useAPIErrorHandler();
 	const [isCreateChamberModalOpen, setIsCreateChamberModalOpen] =
 		useState<boolean>(false);
+	const [isInviteLinkModalOpen, setIsInviteLinkModalOpen] =
+		useState<boolean>(false);
 	const { toast } = useToast();
+	const [inviteLink, setInviteLink] = useState<string>("");
 
 	const onLogoutClick = async () => {
 		if (isLoggingOut) {
@@ -31,9 +34,14 @@ export const useDashboardHeader = () => {
 		}
 	};
 
+	const updateInviteLink = (link: string) => setInviteLink(link);
+
 	return {
 		onLogoutClick,
 		isCreateChamberModalOpen,
 		toggleCreateChamber: toggleBooleanState(setIsCreateChamberModalOpen),
+		updateInviteLink,
+		isInviteLinkModalOpen,
+		toggleInviteLinkModal: toggleBooleanState(setIsInviteLinkModalOpen),
 	};
 };
