@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { MutableRefObject, useEffect, useRef } from "react";
 import { basicSetup, EditorView } from "codemirror";
 import { oneDark } from "@codemirror/theme-one-dark";
 import { EditorState } from "@codemirror/state";
@@ -13,12 +13,19 @@ const fixedHeightEditor = EditorView.theme({
 	".cm-scroller": { overflow: "auto" },
 });
 
-const Editor = ({  socket ,roomId }: { socket:Socket|null ,roomId: string }) => {
+const Editor = ({
+	socket,
+	roomId,
+}: {
+	socket: Socket | null;
+	roomId: string;
+	eRef: MutableRefObject<EditorView | null>;
+}) => {
 	const elementRef = useRef<HTMLDivElement>(null);
 	const editorRef = useRef<EditorView | null>(null);
 
 	useEffect(() => {
-        const socket = getSocket();
+		const socket = getSocket();
 		socket?.emit("join", { roomId });
 		socket?.emit("fetch", { roomId });
 		socket?.once("pull", ({ version, code }: any) => {
