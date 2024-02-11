@@ -1,3 +1,7 @@
+## Codeploy 
+
+Welcome to the  repository of Codeploy, a collaborative coding execution platform with real-time audio and chat communication features.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -18,19 +22,67 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Development Server
 
-## Learn More
+Make sure you have Node.js installed on your machine. Then, clone this repository, navigate to the project directory, and run one of the aforementioned commands to start the development server.
 
-To learn more about Next.js, take a look at the following resources:
+### Folder Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project follows a standard Next.js folder structure:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+codeploy-frontend/
+  ├── components/        # Reusable components
+  ├── pages/             # Next.js pages
+  ├── public/            # Static assets
+  ├── styles/            # CSS stylesheets
+  └── README.md          # Project README file
+```
 
-## Deploy on Vercel
+Feel free to explore the folders and files to understand the project structure better.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+### Technologies Used
+
+- **Language:** TypeScript
+- **Framework:** Next.js
+- **Real-time Communication:** Implemented using web sockets and the Socket.IO library
+- **Real-time Synced Code:** Achieved through 'CodeMirror'
+- **User Interface:** Developed using ShadCN UI library and Tailwind CSS
+
+
+---
+
+### Introduction to Technologies
+
+#### [TypeScript](https://www.typescriptlang.org/)
+
+TypeScript is a statically typed superset of JavaScript that compiles to plain JavaScript. It adds optional static types, classes, and modules to JavaScript, enabling IDEs to provide a better development experience through code completion and static type checking.
+
+#### [Next.js](https://nextjs.org/docs)
+
+Next.js is a React framework that enables functionality such as server-side rendering and generating static websites for React-based web applications. It simplifies the process of building React applications by providing features like file-based routing, API routes, and built-in CSS support.
+
+#### [Socket.IO](https://socket.io/)
+
+Socket.IO is a JavaScript library for real-time web applications. It enables bidirectional communication between web clients and servers, facilitating real-time updates, chat applications, and multiplayer gaming.
+
+#### [CodeMirror](https://codemirror.net/)
+
+CodeMirror is a versatile text editor implemented in JavaScript for the browser. It is specialized for editing code and comes with a variety of features, including syntax highlighting, code folding, and auto-completion. CodeMirror is often used in web-based code editors and integrated development environments (IDEs).
+
+#### [Tailwind CSS](https://tailwindcss.com/)
+
+Tailwind CSS is a utility-first CSS framework that provides a set of pre-designed CSS utility classes to build custom designs without having to write custom CSS styles. It enables rapid development and customization of user interfaces by composing utility classes directly in HTML markup.
+
+#### [ShadCN UI Library](https://ui.shadcn.com/)
+
+ShadCN UI Library is a user interface (UI) library that provides pre-designed components and styles for building modern web applications. It offers a collection of reusable UI components, layouts, and styles built with CSS and JavaScript, allowing developers to create visually appealing and responsive interfaces efficiently.
+
+In the Codeploy frontend project, these technologies are combined to create a collaborative coding platform with real-time communication features, a user-friendly interface, and efficient code editing capabilities.
+
+---
+
