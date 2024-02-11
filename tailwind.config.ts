@@ -45,6 +45,7 @@ const config = {
 				"primary-violet": "#7928CA",
 				"dark-pink": "#ff0080",
 				"rose-pink": "#e2008e",
+				"semi-transparent": "rgba(0, 0, 0, 0.6)",
 			},
 			fontFamily: {
 				"geist-sans": ["var(--font-geist-sans)"],

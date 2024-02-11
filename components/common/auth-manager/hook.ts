@@ -1,9 +1,10 @@
-import { appLoadAtom, authAtom, chambersAtom } from "@/atoms";
+import { appLoadAtom, authAtom, chambersAtom, userAtom } from "@/atoms";
 import { chambersLoadingAtom } from "@/atoms/chambers-loading-atom";
 import { useAPIErrorHandler } from "@/hooks";
 import { useCheckPrevAuth } from "@/services/api/auth";
 import { useGetChambers } from "@/services/api/chambers";
-import { Chamber } from "@/types/models";
+import { useGetCurrentUser } from "@/services/api/user";
+import { Chamber, User } from "@/types/models";
 import { useEffect, useRef } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
@@ -15,8 +16,10 @@ export const useAuthManager = () => {
 		useRecoilState<boolean>(authAtom);
 	const { chambers, fetchingChamberError, getChambers, gettingChambers } =
 		useGetChambers();
+	const { currentUser, error, getCurrentUser } = useGetCurrentUser();
 	const setFetchingChambers = useSetRecoilState<boolean>(chambersLoadingAtom);
 	const setChambers = useSetRecoilState<Array<Chamber>>(chambersAtom);
+	const setUser = useSetRecoilState<User | null>(userAtom);
 	const { APIErrorHandler, protectedAPIErrorHandler } = useAPIErrorHandler();
 
 	useEffect(() => {
@@ -32,14 +35,19 @@ export const useAuthManager = () => {
 
 	useEffect(() => {
 		if (chambers) {
-			console.log(chambers);
 			setChambers(chambers);
 		}
 	}, [chambers]);
 
 	useEffect(() => {
+		if (currentUser) {
+			console.log(currentUser);
+			setUser(currentUser);
+		}
+	}, [currentUser]);
+
+	useEffect(() => {
 		if (data) {
-			console.log(data);
 			setIsAuthenticated(data.success);
 			setIsAppLoaded(true);
 		}
@@ -50,14 +58,15 @@ export const useAuthManager = () => {
 			APIErrorHandler()(checkPrevAuthError);
 		}
 
-		if (fetchingChamberError) {
+		if (fetchingChamberError || error) {
 			protectedAPIErrorHandler()(fetchingChamberError);
 		}
-	}, [checkPrevAuthError, fetchingChamberError]);
+	}, [checkPrevAuthError, fetchingChamberError, error]);
 
 	useEffect(() => {
 		if (isAuthenticated) {
 			getChambers();
+			getCurrentUser();
 		}
 	}, [isAuthenticated]);
 
